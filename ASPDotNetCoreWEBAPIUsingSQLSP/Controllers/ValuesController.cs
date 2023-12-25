@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASPDotNetCoreWEBAPIUsingSQLSP.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,11 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        Employee emp = new Employee();
+
+
+
         // GET: api/<ValuesController>
         [HttpGet]
         public IEnumerable<string> Get()
