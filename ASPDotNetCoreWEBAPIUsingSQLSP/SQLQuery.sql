@@ -1,4 +1,8 @@
-select * from TestEmployee ;
+
+
+create database DBForWebAPI
+
+use DBForWebAPI
 
 create table tblTestEmployee
 (

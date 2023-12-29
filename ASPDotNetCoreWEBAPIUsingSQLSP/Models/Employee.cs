@@ -7,10 +7,10 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Models
 {
     public class Employee
     {
-        public int ID { get; set;}
-        public string Name { get; set; }
-        public int Age  { get; set; }
-        public int Active { get; set; }
+        public int empID { get; set;}
+        public string empName { get; set; }
+        public int empAge { get; set; }
+        public int empActive { get; set; }
 
 
     }

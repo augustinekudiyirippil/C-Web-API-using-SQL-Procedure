@@ -1,0 +1,7 @@
+D:\Augustine\Personal\Microsoft WebAPI\ASP.NET  Using SQL Server Stored Procedures\WebApiWithSQLSP\ASPDotNetApplicationUsingWEBAPIAndSQLSP\bin\ASPDotNetApplicationUsingWEBAPIAndSQLSP.dll.config
+D:\Augustine\Personal\Microsoft WebAPI\ASP.NET  Using SQL Server Stored Procedures\WebApiWithSQLSP\ASPDotNetApplicationUsingWEBAPIAndSQLSP\bin\ASPDotNetApplicationUsingWEBAPIAndSQLSP.dll
+D:\Augustine\Personal\Microsoft WebAPI\ASP.NET  Using SQL Server Stored Procedures\WebApiWithSQLSP\ASPDotNetApplicationUsingWEBAPIAndSQLSP\bin\ASPDotNetApplicationUsingWEBAPIAndSQLSP.pdb
+D:\Augustine\Personal\Microsoft WebAPI\ASP.NET  Using SQL Server Stored Procedures\WebApiWithSQLSP\ASPDotNetApplicationUsingWEBAPIAndSQLSP\obj\Debug\ASPDotNetApplicationUsingWEBAPIAndSQLSP.csproj.AssemblyReference.cache
+D:\Augustine\Personal\Microsoft WebAPI\ASP.NET  Using SQL Server Stored Procedures\WebApiWithSQLSP\ASPDotNetApplicationUsingWEBAPIAndSQLSP\obj\Debug\ASPDotNetApplicationUsingWEBAPIAndSQLSP.csproj.CoreCompileInputs.cache
+D:\Augustine\Personal\Microsoft WebAPI\ASP.NET  Using SQL Server Stored Procedures\WebApiWithSQLSP\ASPDotNetApplicationUsingWEBAPIAndSQLSP\obj\Debug\ASPDotNetApplicationUsingWEBAPIAndSQLSP.dll
+D:\Augustine\Personal\Microsoft WebAPI\ASP.NET  Using SQL Server Stored Procedures\WebApiWithSQLSP\ASPDotNetApplicationUsingWEBAPIAndSQLSP\obj\Debug\ASPDotNetApplicationUsingWEBAPIAndSQLSP.pdb

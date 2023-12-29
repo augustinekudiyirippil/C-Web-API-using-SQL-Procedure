@@ -30,11 +30,11 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
         //string myDb1ConnectionString = _configuration.GetConnectionString("MyDBConnection");
 
 
-        string sqlConnectionString = "Server=DEMOLAPTOP; Database=Master;Integrated Security = true;";
+        string sqlConnectionString = "Server=DEMOLAPTOP; Database=DBForWebAPI;Integrated Security = true;";
 
         //         Server=DEMOLAPTOP;Database=Master;User Id = sa; Password=Hanrahan1;
 
-        SqlConnection sQLConnection = new SqlConnection("Server=DEMOLAPTOP; Database=Master;Integrated Security = true;");
+        SqlConnection sqlConnection = new SqlConnection("Server=DEMOLAPTOP; Database=DBForWebAPI;Integrated Security = true;");
 
         
 
@@ -61,11 +61,34 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Post(Employee employee)
+        public string Post(Employee employee)
         {
+            string resultMsg = "";
 
+            if(employee !=null)
+            {
+                SqlCommand sqlcommand = new SqlCommand("usp_AddEmployee", sqlConnection);
+                sqlcommand.CommandType = CommandType.StoredProcedure;
+                sqlcommand.Parameters.AddWithValue("@empName", employee.empName);
+                sqlcommand.Parameters.AddWithValue("@empAge", employee.empAge);
+                sqlcommand.Parameters.AddWithValue("@empActive", employee.empActive);
+                sqlConnection.Open();
+                int i = sqlcommand.ExecuteNonQuery();
+                sqlConnection.Close();
 
+                if(i>0)
+                {
+                    resultMsg= "New eployee added";
+                }
+                else
+                {
+                    resultMsg= "Error";
 
+                }
+
+            }
+
+            return resultMsg;
 
         }
 
