@@ -4,6 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
+
+
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +20,26 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+
+
+
+
+        //MyDBConnection
+
+        //string myDb1ConnectionString = _configuration.GetConnectionString("MyDBConnection");
+
+
+        string sqlConnectionString = "Server=DEMOLAPTOP; Database=Master;Integrated Security = true;";
+
+        //         Server=DEMOLAPTOP;Database=Master;User Id = sa; Password=Hanrahan1;
+
+        SqlConnection sQLConnection = new SqlConnection("Server=DEMOLAPTOP; Database=Master;Integrated Security = true;");
+
+        
+
+
+
 
         Employee emp = new Employee();
 
@@ -34,8 +61,12 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Employee employee)
         {
+
+
+
+
         }
 
         // PUT api/<ValuesController>/5

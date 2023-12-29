@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "MyDBConnection": "Server=DEMOLAPTOP;Database=Master;Integrated Security=true;;MultipleActiveResultSets=true"
+  }
+}
+
