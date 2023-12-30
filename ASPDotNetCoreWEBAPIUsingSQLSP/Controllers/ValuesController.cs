@@ -99,7 +99,7 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
         {
            
 
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("usp_GetAllEmployees", sqlConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("usp_GetEmployeeByID", sqlConnection);
             sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             sqlDataAdapter.SelectCommand.Parameters.AddWithValue("@empID",id);
             DataTable dataTable = new DataTable();
@@ -146,7 +146,7 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
 
                 if(i>0)
                 {
-                    resultMsg= "New eployee added";
+                    resultMsg= "New employee added";
                 }
                 else
                 {
@@ -162,14 +162,70 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
 
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public string Put(int id, Employee employee)
         {
+
+            string resultMsg = "";
+
+            if (employee != null)
+            {
+                SqlCommand sqlcommand = new SqlCommand("usp_UpdateEmployee", sqlConnection);
+                sqlcommand.CommandType = CommandType.StoredProcedure;
+                sqlcommand.Parameters.AddWithValue("@empID", id);
+                sqlcommand.Parameters.AddWithValue("@empName", employee.empName);
+                sqlcommand.Parameters.AddWithValue("@empAge", employee.empAge);
+                sqlcommand.Parameters.AddWithValue("@empActive", employee.empActive);
+                sqlConnection.Open();
+                int i = sqlcommand.ExecuteNonQuery();
+                sqlConnection.Close();
+
+                if (i > 0)
+                {
+                    resultMsg = "Selected employee updated";
+                }
+                else
+                {
+                    resultMsg = "Error";
+
+                }
+
+            }
+
+            return resultMsg;
+
+
+
+
         }
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public string Delete(int id)
         {
+
+            string resultMsg = "";
+
+       
+                SqlCommand sqlcommand = new SqlCommand("usp_DeleteEmployee", sqlConnection);
+                sqlcommand.CommandType = CommandType.StoredProcedure;
+                sqlcommand.Parameters.AddWithValue("@empID", id);
+                sqlConnection.Open();
+                int i = sqlcommand.ExecuteNonQuery();
+                sqlConnection.Close();
+
+                if (i > 0)
+                {
+                    resultMsg = "Selected employee deleted";
+                }
+                else
+                {
+                    resultMsg = "Error";
+
+                }
+
+      
+            return resultMsg;
+
         }
     }
 }

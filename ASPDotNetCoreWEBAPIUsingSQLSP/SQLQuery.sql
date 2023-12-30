@@ -48,4 +48,37 @@ from tblTestEmployee;
 end;
 
 
+create procedure usp_GetEmployeeByID
+(
+@empID int
+)
+as
+begin
+select 
+empID  ,
+empName  ,
+empAge  ,
+empActive  
+from tblTestEmployee  where empID=@empID;
+end;
+
+
+
+create procedure usp_UpdateEmployee
+(
+@empID int,
+@empName varchar(50),
+@empAge int,
+@empActive int
+)
+as
+begin
+update tblTestEmployee 
+set 
+empName =@empName ,
+empAge= @empAge ,
+empActive =@empActive 
+where empID =@empID ;
+
+end;
 
