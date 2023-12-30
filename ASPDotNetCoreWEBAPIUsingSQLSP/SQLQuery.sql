@@ -36,4 +36,16 @@ end;
 
 
 
+create procedure usp_GetAllEmployees
+as
+begin
+select 
+empID  ,
+empName  ,
+empAge  ,
+empActive  
+from tblTestEmployee;
+end;
+
+
 

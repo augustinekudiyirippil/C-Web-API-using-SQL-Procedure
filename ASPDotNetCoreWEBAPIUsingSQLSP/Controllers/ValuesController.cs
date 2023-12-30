@@ -47,10 +47,51 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
 
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Employee>Get()
         {
-            return new string[] { "value1", "value2" };
+
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("usp_GetAllEmployees", sqlConnection);
+
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            List<Employee> listEmployee = new List<Employee>();
+            if(dataTable.Rows.Count>0)
+            {
+                for(int i=0; i<dataTable.Rows.Count;i++)
+                {
+
+                    Employee employee = new Employee();
+                    employee.empID = (int)dataTable.Rows[i]["empID"];
+                    employee.empName = (string)dataTable.Rows[i]["empName"];
+                    employee.empAge = (int)dataTable.Rows[i]["empAge"];
+                    employee.empActive = (int)dataTable.Rows[i]["empActive"];
+                    listEmployee.Add(employee);
+
+                }
+
+
+             
+
+            }
+            if (listEmployee.Count > 0)
+            {
+
+                return listEmployee;
+            }
+            else
+            {
+                return null;
+
+            }
+
+
+
         }
+
+
+
+
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
