@@ -52,7 +52,7 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
 
 
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("usp_GetAllEmployees", sqlConnection);
-
+            sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
             List<Employee> listEmployee = new List<Employee>();
@@ -95,9 +95,36 @@ namespace ASPDotNetCoreWEBAPIUsingSQLSP.Controllers
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Employee Get(int id)
         {
-            return "value";
+           
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("usp_GetAllEmployees", sqlConnection);
+            sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDataAdapter.SelectCommand.Parameters.AddWithValue("@empID",id);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            Employee employee = new Employee();
+            if (dataTable.Rows.Count > 0)
+            {
+        
+                   
+                    employee.empID = (int)dataTable.Rows[0]["empID"];
+                    employee.empName = (string)dataTable.Rows[0]["empName"];
+                    employee.empAge = (int)dataTable.Rows[0]["empAge"];
+                    employee.empActive = (int)dataTable.Rows[0]["empActive"];
+                    
+                  }
+            if (employee!=null)
+            {
+
+                return employee;
+            }
+            else
+            {
+                return null;
+
+            }
         }
 
         // POST api/<ValuesController>
